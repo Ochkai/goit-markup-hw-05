@@ -233,8 +233,9 @@ img {
 
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.2);
+  /* background-color: #000000; */
   z-index: 2;
-  transition-property: opacity, transform;
+  transition-property: opacity;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -242,21 +243,22 @@ img {
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
-  visibility: hidden;
-
-  transform: translateY(-100%);
+  /* visibility: hidden; */
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
 }
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   width: 528px;
   height: 581px;
-  background-color: #ffffff;
+  background-color: var(--background-color);
 
-  transition-property: background-color;
+  transition-property: transform;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -264,14 +266,17 @@ img {
   position: absolute;
   top: 8px;
   right: 8px;
+  display: flex;
 
+  align-items: center;
   width: 30px;
   height: 30px;
-  background-color: #ffffff;
+  margin: 0;
+
+  background-color: var(--background-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  margin: 0;
-  padding: 6px 6px;
+  cursor: pointer;
 }
 
 .overlay {
@@ -382,6 +387,7 @@ img {
   margin: 0;
   color: white;
   padding-top: 27px;
+  padding-bottom: 27px;
 }
 .work-name {
   position: absolute;
@@ -389,7 +395,6 @@ img {
   text-align: center;
   background-image: linear-gradient(to right, rgba(47, 48, 58, 0.8), rgba(47, 48, 58, 0.8));
   width: 370px;
-  height: 70px;
 }
 /* Наша команда */
 .section-command {
@@ -451,7 +456,7 @@ img {
   padding: 12px;
   border-radius: 50%;
 
-  transition-property: background-color;
+  transition-property: background-color, fill;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
